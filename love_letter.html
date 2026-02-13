@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Love Letter 💌</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: 'Quicksand', sans-serif;
+  background: radial-gradient(circle at center, #ffe3ec, #ffc2d1, #ff9ebb);
+  animation: heartbeatBg 3s ease-in-out infinite;
+}
+
+/* ---------------- HEARTBEAT BACKGROUND ---------------- */
+@keyframes heartbeatBg {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(1.08); }
+  100% { filter: brightness(1); }
+}
+
+/* ---------------- CONTENT ---------------- */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: clamp(1rem, 5vw, 2.5rem) clamp(0.75rem, 4vw, 2rem);
+  position: relative;
+  z-index: 2;
+}
+
+.card {
+  background: rgba(255,255,255,0.85);
+  padding: clamp(1.5rem, 6vw, 3rem);
+  border-radius: clamp(16px, 4vw, 24px);
+  max-width: 100%;
+  width: clamp(300px, 90vw, 760px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  backdrop-filter: blur(6px);
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 6vw, 3rem);
+  color: #b30059;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+#letter {
+  font-size: clamp(0.9rem, 2.5vw, 1.25rem);
+  line-height: 1.7;
+  color: #5a0033;
+  white-space: pre-line;
+  min-height: 220px;
+}
+
+button {
+  margin-top: clamp(1rem, 3vw, 1.5rem);
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(45deg,#ff4d88,#ff0066);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transition: transform .15s ease, box-shadow .15s ease;
+  width: 100%;
+  max-width: 300px;
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.proposal {
+  font-size: clamp(1.2rem, 4vw, 1.75rem);
+  margin-top: clamp(1rem, 3vw, 1.5rem);
+  color: #b30059;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.proposal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  font-size: clamp(1.5rem, 4vw, 1.75rem);
+  opacity: 0.6;
+  animation: float 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh) rotate(0deg); }
+  to { transform: translateY(-100vh) rotate(360deg); }
+}
+
+/* Explosion animation */
+@keyframes explode {
+  0% { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+}
+
+.explosion {
+  position: fixed;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  animation: explode 2s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes slideInScale {
+  from { transform: scale(0) rotate(-180deg); opacity: 0; }
+  to { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.celebration-text {
+  position: fixed;
+  font-size: clamp(2rem, 8vw, 3.75rem);
+  font-weight: bold;
+  animation: slideInScale 0.6s ease;
+  pointer-events: none;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem 0.75rem;
+  }
+  
+  .card {
+    border-radius: 16px;
+  }
+  
+  #letter {
+    min-height: 180px;
+  }
+  
+  button {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .card {
+    padding: 1.5rem;
+  }
+  
+  h1 {
+    margin-bottom: 0.75rem;
+  }
+  
+  #letter {
+    min-height: 150px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  button {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="card">
+    <h1>Happy Valentine's Day</h1>
+    <div id="letter">
+      
+      
+From the very first hi, something about you just felt easy,like a familiar kind of calm I didn’t know I needed.
+
+Somewhere between the jokes, the deep talks, and the quiet in-between moments, you became my comfort.
+I find it so natural to share everything with you; the good, the messy, the random little thoughts. 
+I don’t have to filter myself around you, and that feels rare.
+I really value the connection we’ve built and the way it makes my days a little brighter.
+Glad I broke this no contact.Forever doesn’t exist, but being yours - however long - sounds perfect.
+    </div>
+    
+    <button onclick="showProposal()">Reveal My Heart</button>
+    
+    <div class="proposal" id="proposal">
+      Ayush, making up for lost time sounds way too tempting… you in? 😏<br>
+      <button onclick="celebrate()">YES</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Create floating hearts on page load
+  function createFloatingHearts() {
+    for(let i = 0; i < 20; i++) {
+      let heart = document.createElement('div');
+      heart.textContent = '💕';
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.animationDelay = Math.random() * 2 + 's';
+      heart.style.opacity = 0.4 + Math.random() * 0.3;
+      document.body.appendChild(heart);
+    }
+  }
+  
+  // Run on page load
+  window.addEventListener('load', createFloatingHearts);
+  
+  function showProposal() {
+    document.getElementById('proposal').classList.add('show');
+  }
+  
+  function celebrate() {
+    // Explosion of hearts from center
+    for(let i = 0; i < 50; i++) {
+      let heart = document.createElement('div');
+      heart.textContent = '❤';
+      heart.className = 'explosion';
+      
+      const angle = (Math.PI * 2 * i) / 50;
+      const velocity = 300 + Math.random() * 200;
+      const tx = Math.cos(angle) * velocity;
+      const ty = Math.sin(angle) * velocity;
+      
+      heart.style.setProperty('--tx', tx + 'px');
+      heart.style.setProperty('--ty', ty + 'px');
+      heart.style.left = '50%';
+      heart.style.top = '50%';
+      heart.style.marginLeft = '-20px';
+      heart.style.marginTop = '-20px';
+      
+      document.body.appendChild(heart);
+      
+      setTimeout(() => heart.remove(), 2000);
+    }
+    
+    // Floating hearts background
+    for(let i = 0; i < 30; i++) {
+      let heart = document.createElement('div');
+      heart.textContent = '💕';
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.animationDelay = Math.random() * + 's';
+      document.body.appendChild(heart);
+    }
+    
+    // Celebration text
+    setTimeout(() => {
+      let celebration = document.createElement('div');
+      celebration.textContent = 'Daddy💕';
+      celebration.className = 'celebration-text';
+      celebration.style.left = '50%';
+      celebration.style.top = '45%';
+      celebration.style.transform = 'translate(-50%, -50%)';
+      celebration.style.color = '#b30059';
+      celebration.style.textShadow = '0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 0, 102, 1), 2px 2px 4px rgba(0, 0, 0, 0.3)';
+      celebration.style.fontWeight = 'bold';
+      celebration.style.zIndex = '9999';
+      document.body.appendChild(celebration);
+      
+      setTimeout(() => celebration.remove(), 2000);
+    }, 300);
+  }
+</script>
+
+</body>
+</html>
